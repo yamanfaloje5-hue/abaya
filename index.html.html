@@ -1,0 +1,270 @@
+<title>دار العباءة</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap">
+<style>
+/* Layout: classic RTL boutique. Gold-on-ink, arched hero frame, calligraphic headings, grid of garment portraits, slide-in cart. Single dark look by choice. */
+:root{
+  --bg:#0F0D0B; --surface:#17130F; --fg:#F3EADA; --muted:#B6A98F; --line:#3A2E1E;
+  --gold:#C9A24F; --gold2:#EBD393; --ink:#0F0D0B; --danger:#E58A82;
+  --display:'Aref Ruqaa','Amiri',serif; --serif:'Amiri','Aref Ruqaa',serif; --ui:'Tajawal',system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);color:var(--fg);font-family:var(--serif);font-size:18px;line-height:1.75;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M32 4 L38 26 L60 32 L38 38 L32 60 L26 38 L4 32 L26 26Z' fill='none' stroke='%23C9A24F' stroke-opacity='.10'/%3E%3C/svg%3E");
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+.wrap{max-width:1120px;margin:0 auto}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(15,13,11,.94);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;padding:10px 0}
+.logo{font-family:var(--display);font-weight:700;font-size:1.9rem;color:var(--gold2);line-height:1.2}
+.nav{display:flex;gap:24px;margin-inline-start:24px;font-family:var(--ui);font-size:.95rem}
+.nav a{color:var(--muted);text-decoration:none}.nav a:hover{color:var(--gold2)}
+.spacer{flex:1}
+.cartbtn{font-family:var(--ui);display:flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:2px;padding:7px 16px;font-weight:500}
+.cartbtn b{background:var(--gold);color:var(--ink);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+.strip{font-family:var(--ui);text-align:center;font-size:.85rem;color:var(--gold2);padding:6px 0;letter-spacing:.3px;border-bottom:1px solid var(--line)}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:56px 0 64px}
+.eyebrow{font-family:var(--ui);color:var(--gold);letter-spacing:2px;font-size:.85rem;margin-bottom:8px}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.3;margin:0 0 16px;color:var(--fg);text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero p{color:var(--muted);max-width:44ch;margin:0 0 28px;font-size:1.15rem}
+.cta{font-family:var(--ui);background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink);border:0;border-radius:2px;padding:12px 32px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-block}
+.cta.ghost{background:transparent;border:1px solid var(--gold);color:var(--gold2);margin-inline-start:10px}
+.arch{border:1px solid var(--gold);border-radius:999px 999px 6px 6px;padding:10px;max-width:380px;margin-inline:auto;width:100%}
+.arch>div{border-radius:999px 999px 2px 2px;background:radial-gradient(circle at 50% 30%,#3A2E1D,#14110D 75%);aspect-ratio:3/4.3;display:grid;place-items:center;border:1px solid var(--line)}
+.arch svg{width:78%}
+.rule{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);margin:0 0 8px}
+.rule::before,.rule::after{content:"";height:1px;background:var(--gold);opacity:.5;flex:1;max-width:120px}
+.rule i{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.sec{text-align:center;margin-bottom:28px}
+.sec h2{font-family:var(--display);font-weight:700;font-size:2.2rem;margin:0;color:var(--gold2)}
+.sec p{color:var(--muted);margin:4px 0 0}
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px;font-family:var(--ui)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;border-radius:2px;padding:5px 16px;color:var(--muted)}
+.chip[aria-pressed="true"]{border-color:var(--gold);color:var(--ink);background:var(--gold)}
+.tools input,.tools select{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:2px;padding:8px 12px;font:inherit;min-width:0}
+.tools input{flex:1;min-width:140px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;padding-bottom:64px}
+.card{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.pic{aspect-ratio:4/5;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 30%,#35291A,#14110D 78%);border-bottom:1px solid var(--line)}
+.pic svg{width:72%}
+.badge{position:absolute;inset-block-start:12px;inset-inline-start:12px;font-family:var(--ui);background:var(--gold);color:var(--ink);font-size:.75rem;font-weight:700;padding:1px 10px}
+.info{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.fab{font-family:var(--ui);color:var(--gold);font-size:.8rem;letter-spacing:.5px}
+.info h3{margin:0;font-family:var(--display);font-size:1.3rem;font-weight:700;line-height:1.4}
+.desc{margin:0;color:var(--muted);font-size:.98rem;line-height:1.7}
+.price{display:flex;gap:10px;align-items:baseline;font-family:var(--ui);font-weight:700;color:var(--gold2);font-size:1.1rem}
+.price s{color:var(--muted);font-weight:400;font-size:.9rem}
+.szl{font-family:var(--ui);font-size:.8rem;color:var(--muted);margin-top:4px}
+.sizes{display:flex;gap:6px;flex-wrap:wrap;font-family:var(--ui)}
+.sz{border:1px solid var(--line);background:transparent;min-width:40px;padding:1px 8px;font-size:.88rem;color:var(--fg)}
+.sz[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.add{font-family:var(--ui);margin-top:10px;background:transparent;border:1px solid var(--gold);color:var(--gold2);padding:9px;font-weight:700}
+.add:hover{background:var(--gold);color:var(--ink)}
+.empty{grid-column:1/-1;color:var(--muted);padding:40px 0;text-align:center}
+.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--line);margin-bottom:56px;background:var(--surface)}
+.story div{padding:28px 24px;border-inline-start:1px solid var(--line);text-align:center}
+.story div:first-child{border-inline-start:0}
+.story h3{font-family:var(--display);color:var(--gold2);margin:0 0 6px;font-size:1.4rem}
+.story p{margin:0;color:var(--muted);font-size:1rem}
+.quote{text-align:center;max-width:60ch;margin:0 auto 64px;font-size:1.35rem;color:var(--fg);line-height:2}
+.quote small{display:block;font-family:var(--ui);color:var(--gold);font-size:.85rem;margin-top:8px}
+footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);font-family:var(--ui);font-size:.9rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:70}
+.drawer{position:fixed;inset-block:0;inset-inline-start:0;width:min(420px,100%);background:var(--surface);border-inline-end:1px solid var(--gold);z-index:80;display:flex;flex-direction:column;font-family:var(--ui);padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.dh{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line)}
+.dh h2{margin:0;font-family:var(--display);font-size:1.5rem;color:var(--gold2)}
+.x{background:none;border:0;font-size:1.6rem;line-height:1;padding:4px 8px}
+.items{flex:1;overflow:auto;padding:8px 20px}
+.line{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.thumb{width:60px;height:74px;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,#35291A,#14110D 80%);border:1px solid var(--line)}
+.thumb svg{width:80%}
+.line h4{margin:0;font-size:.95rem;font-weight:500}
+.line small{color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px;margin-top:4px}
+.qty button{width:26px;height:26px;border:1px solid var(--line);background:transparent;line-height:1}
+.rm{background:none;border:0;color:var(--danger);font-size:.85rem}
+.df{padding:16px 20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:1.15rem;color:var(--gold2)}
+.form{display:flex;flex-direction:column;gap:10px}
+.form input{border:1px solid var(--line);background:var(--bg);color:var(--fg);padding:10px 12px;font:inherit;width:100%}
+.ok{padding:36px 20px;text-align:center}
+.ok h3{font-family:var(--display);font-size:1.6rem;color:var(--gold2);margin:8px 0}
+.note{color:var(--muted);font-size:.85rem}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding:32px 0 40px}.nav{display:none}.arch{order:-1;max-width:260px}.cta.ghost{margin:10px 0 0}.story div{border-inline-start:0;border-top:1px solid var(--line)}.story div:first-child{border-top:0}}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .25s}.card:hover{border-color:var(--gold)}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="shade" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".38"/><stop offset=".35" stop-color="#fff" stop-opacity=".10"/><stop offset=".6" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></linearGradient>
+  <linearGradient id="goldg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#F3DFA2"/><stop offset=".5" stop-color="#C9A24F"/><stop offset="1" stop-color="#9A7A33"/></linearGradient>
+</defs></svg>
+
+<div class="wrap">
+<header><div class="bar">
+  <div class="logo">دار العباءة</div>
+  <nav class="nav"><a href="#shop">المجموعة</a><a href="#story">قصتنا</a></nav>
+  <div class="spacer"></div>
+  <button class="cartbtn" id="openCart" aria-label="فتح السلة">السلة <b id="count">0</b></button>
+</div></header>
+<div class="strip">شحن مجاني للطلبات فوق 150$ ✦ تفصيل حسب الطلب متاح</div>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">مجموعة الشتاء ٢٠٢٦</div>
+    <h1>أناقةٌ تُحاك بحبٍّ <em>وتليق بكِ</em></h1>
+    <p>عبايات نسائية بقصّات كلاسيكية راقية، من أجود أقمشة الكريب والمخمل والشيفون، مطرّزة بخيوط ذهبية تُكمل حضوركِ بهدوء ووقار.</p>
+    <a class="cta" href="#shop">تصفّحي المجموعة</a><a class="cta ghost" href="#story">قصتنا</a>
+  </div>
+  <div class="arch"><div id="heroart"></div></div>
+</section>
+
+<section id="shop">
+  <div class="sec"><div class="rule"><i></i></div><h2>المجموعة</h2><p>قطع مختارة بعناية لكل مناسبة</p></div>
+  <div class="tools">
+    <div class="chips" id="chips" role="group" aria-label="التصنيفات"></div>
+    <input id="q" type="search" placeholder="ابحثي عن عباءة" aria-label="بحث">
+    <select id="sort" aria-label="الترتيب">
+      <option value="def">الترتيب: المختارات</option>
+      <option value="asc">السعر: الأقل أولًا</option>
+      <option value="desc">السعر: الأعلى أولًا</option>
+    </select>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="story" id="story">
+  <div><h3>خامات فاخرة</h3><p>نختار كل قماش بيدٍ خبيرة: سقوطٌ ناعم، وملمسٌ مريح، وثباتٌ في اللون مع الغسيل.</p></div>
+  <div><h3>تطريز يدوي</h3><p>خيوط ذهبية تُطرّز على الأكمام والحواف بإتقان، فتمنح كل قطعة طابعها الخاص.</p></div>
+  <div><h3>مقاسات دقيقة</h3><p>أطوال من ٥٢ إلى ٦٠ بوصة، ويمكننا تعديل الطول والأكمام لتناسبكِ تمامًا.</p></div>
+</section>
+
+<p class="quote">«الأناقة الحقيقية أن تُرى في تفاصيلكِ الهادئة، لا في ضجيج الألوان.»<small>من دفتر دار العباءة</small></p>
+
+<footer><span>© ٢٠٢٦ دار العباءة. جميع الحقوق محفوظة.</span><span>هذا الموقع تجريبي: الأسماء والأسعار أمثلة.</span></footer>
+</div>
+
+<div id="layer"></div>
+
+<script>
+const PRODUCTS=[
+ {id:1,n:'عباءة الكريب الملكي',c:'كلاسيكية',f:'كريب ياباني',v:'gold',p:89,col:'#26211F',s:['52','54','56','58'],tag:'الأكثر طلبًا',
+  d:'قصّة مستقيمة بسيطة بحواف مذهّبة رفيعة، تنسدل بنعومة وتمنح إطلالة وقورة تناسب الدوام والمناسبات.'},
+ {id:2,n:'عباءة الورد الذهبي',c:'مطرّزة',f:'كريب مطرّز',v:'embroid',p:149,old:175,col:'#211C1A',s:['52','54','56','58'],tag:'خصم',
+  d:'تطريز ذهبي دقيق على الأكمام وطول الواجهة، مصنوعة لمن تحب التفاصيل المخفية التي تلفت النظر بهدوء.'},
+ {id:3,n:'عباءة المخمل الزمردي',c:'سهرة',f:'مخمل حرير',v:'gold',p:179,col:'#0F4A3C',s:['54','56','58'],tag:'جديد',
+  d:'مخمل غني بلون الزمرد العميق وحواف ذهبية، ملمسه دافئ وفخم لأمسيات الشتاء والدعوات الخاصة.'},
+ {id:4,n:'عباءة الكاب العنابي',c:'سهرة',f:'ستان مطفي',v:'cape',p:159,col:'#5E1F2D',s:['52','54','56'],
+  d:'تصميم كاب واسع ينساب على الكتفين بحركة أنيقة، بلون عنابي ثري يعكس الرقيّ والتميّز.'},
+ {id:5,n:'عباءة الرمل الناعمة',c:'كلاسيكية',f:'شيفون ثقيل',v:'plain',p:96,col:'#B49C7C',s:['52','54','56','58'],
+  d:'درجة رملية هادئة بقماش شيفون يتحرك مع الخطوة، خفيفة ومريحة وتناسب النهار والمشاوير الطويلة.'},
+ {id:6,n:'عباءة الليل بالحزام',c:'عملية',f:'كريب مطاطي',v:'belt',p:105,col:'#1D1A19',s:['52','54','56','58','60'],tag:'جديد',
+  d:'حزام ذهبي يحدد الخصر بلطف دون ضيق، لقصّة عملية متوازنة تجمع الاحتشام والأناقة.'},
+ {id:7,n:'عباءة الأزرق الملكي',c:'كلاسيكية',f:'نداء فاخر',v:'gold',p:112,col:'#1B2B4B',s:['52','54','56','58'],
+  d:'أزرق ليلي عميق مع حواف ذهبية رقيقة، لمن تبحث عن بديل أنيق للأسود دون أن تفقد الوقار.'},
+ {id:8,n:'عباءة الفحم المطرّزة',c:'مطرّزة',f:'كريب مطرّز',v:'embroid',p:139,col:'#3A3938',s:['54','56','58'],
+  d:'رمادي فحمي دافئ بتطريز ذهبي ناعم، قطعة تجمع بين رصانة الكلاسيكي ولمسة الفخامة العصرية.'}
+];
+const abaya=(col,v)=>{
+ const body=v==='cape'
+  ?'M88 36 Q100 48 112 36 L152 56 L178 204 L172 290 Q100 304 28 290 L22 204 L48 56 Z'
+  :'M88 36 Q100 48 112 36 L146 52 L188 160 L164 174 L148 114 L154 288 Q100 302 46 288 L52 114 L36 174 L12 160 L54 52 Z';
+ let g=`<path d="M100 18 Q100 10 107 10 Q114 10 114 17 Q114 22 100 26 L100 36 M100 36 L52 52 M100 36 L148 52" fill="none" stroke="#C9A24F" stroke-width="1.6" stroke-linecap="round"/>`;
+ g+=`<path d="${body}" fill="${col}" stroke="rgba(235,211,147,.35)" stroke-width="1"/><path d="${body}" fill="url(#shade)"/>`;
+ g+=`<path d="M72 118 Q69 200 62 290 M128 118 Q131 200 138 290 M86 130 Q84 210 82 294 M114 130 Q116 210 118 294" fill="none" stroke="rgba(0,0,0,.22)" stroke-width="1.6"/>`;
+ g+=`<path d="M78 130 Q76 200 74 290 M122 130 Q124 200 126 290" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.4"/>`;
+ g+=`<path d="M100 48 V296" stroke="rgba(0,0,0,.35)" stroke-width="1.4"/>`;
+ g+=`<path d="M88 36 Q100 48 112 36" fill="none" stroke="url(#goldg)" stroke-width="2.4"/>`;
+ const hem=v==='cape'?'M28 290 Q100 304 172 290':'M46 288 Q100 302 154 288';
+ if(v==='gold'||v==='embroid'||v==='cape'||v==='belt'){
+  g+=`<path d="${hem}" fill="none" stroke="url(#goldg)" stroke-width="2.6"/>`;
+ }
+ if(v==='gold'||v==='embroid'){
+  g+=`<path d="M100 48 V296" stroke="url(#goldg)" stroke-width="2.4"/><path d="M36 174 L12 160 M164 174 L188 160" stroke="url(#goldg)" stroke-width="3.4"/>`;
+ }
+ if(v==='cape'){g+=`<path d="M100 48 V298" stroke="url(#goldg)" stroke-width="2"/><path d="M48 56 L22 204 M152 56 L178 204" stroke="url(#goldg)" stroke-width="1.6" fill="none"/>`;}
+ if(v==='embroid'){
+  for(let y=64;y<=280;y+=16){g+=`<circle cx="94" cy="${y}" r="1.7" fill="#E9CF86"/><circle cx="106" cy="${y}" r="1.7" fill="#E9CF86"/><path d="M96 ${y+8} Q100 ${y+3} 104 ${y+8}" fill="none" stroke="#C9A24F" stroke-width="1"/>`}
+  for(let i=0;i<5;i++){const t=i/4;
+   g+=`<circle cx="${34-t*18}" cy="${172-t*12+ -2}" r="2" fill="#E9CF86"/><circle cx="${166+t*18}" cy="${172-t*12-2}" r="2" fill="#E9CF86"/>`}
+  g+=`<path d="M34 150 L30 130 M166 150 L170 130" stroke="#C9A24F" stroke-width="1" fill="none"/>`;
+ }
+ if(v==='belt'){
+  g+=`<path d="M52 150 L148 150 L148 162 L52 162Z" fill="url(#goldg)" opacity=".92"/><rect x="92" y="147" width="16" height="18" rx="2" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.6"/>`;
+ }
+ return `<svg viewBox="0 0 200 312" aria-hidden="true">${g}<ellipse cx="100" cy="306" rx="62" ry="3.5" fill="#000" opacity=".4"/></svg>`;
+};
+const $=s=>document.querySelector(s);
+const money=v=>'$'+v;
+let cat='الكل',cart=[],picked={},done=false,waLink='';
+try{cart=JSON.parse(localStorage.getItem('abaya-cart')||'[]')}catch(e){cart=[]}
+const save=()=>{try{localStorage.setItem('abaya-cart',JSON.stringify(cart))}catch(e){}};
+
+$('#heroart').innerHTML=abaya('#241F1D','embroid');
+const cats=['الكل',...new Set(PRODUCTS.map(p=>p.c))];
+$('#chips').innerHTML=cats.map(c=>`<button class="chip" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join('');
+$('#chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;
+  document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.c===cat));render()};
+$('#q').oninput=render;$('#sort').onchange=render;
+
+function render(){
+  const q=$('#q').value.trim();let list=PRODUCTS.filter(p=>(cat==='الكل'||p.c===cat)&&(!q||p.n.includes(q)||p.c.includes(q)||p.f.includes(q)));
+  const s=$('#sort').value;if(s==='asc')list.sort((a,b)=>a.p-b.p);if(s==='desc')list.sort((a,b)=>b.p-a.p);
+  $('#grid').innerHTML=list.length?list.map(p=>{
+    const sel=picked[p.id]||p.s[1]||p.s[0];
+    return `<article class="card"><div class="pic">${p.tag?`<span class="badge">${p.tag}</span>`:''}${abaya(p.col,p.v)}</div>
+    <div class="info"><span class="fab">${p.f}</span><h3>${p.n}</h3><p class="desc">${p.d}</p>
+    <div class="price">${money(p.p)}${p.old?`<s>${money(p.old)}</s>`:''}</div>
+    <div class="szl">الطول (بوصة)</div>
+    <div class="sizes" role="group" aria-label="الطول">${p.s.map(z=>`<button class="sz" data-id="${p.id}" data-z="${z}" aria-pressed="${z===sel}">${z}</button>`).join('')}</div>
+    <button class="add" data-add="${p.id}">أضيفي إلى السلة</button></div></article>`}).join(''):'<div class="empty">لا توجد عبايات مطابقة لبحثكِ.</div>';
+}
+$('#grid').onclick=e=>{
+  const z=e.target.closest('.sz');
+  if(z){picked[z.dataset.id]=z.dataset.z;z.parentNode.querySelectorAll('.sz').forEach(b=>b.setAttribute('aria-pressed',b===z));return}
+  const a=e.target.closest('[data-add]');if(!a)return;
+  const p=PRODUCTS.find(x=>x.id==a.dataset.add),size=picked[p.id]||p.s[1]||p.s[0];
+  const ex=cart.find(i=>i.id===p.id&&i.size===size);ex?ex.q++:cart.push({id:p.id,size,q:1});
+  save();count();a.textContent='تمت الإضافة ✓';setTimeout(()=>a.textContent='أضيفي إلى السلة',1200);
+};
+const total=()=>cart.reduce((s,i)=>s+PRODUCTS.find(p=>p.id===i.id).p*i.q,0);
+function count(){$('#count').textContent=cart.reduce((s,i)=>s+i.q,0)}
+function openCart(){done=false;drawer()}
+function closeCart(){$('#layer').innerHTML=''}
+function drawer(checkout){
+  const t=total(),ship=t>=150||t===0?0:8;
+  let body;
+  if(done){body=`<div class="ok"><div style="font-size:2.4rem;color:var(--gold2)">✦</div><h3>طلبكِ جاهز للإرسال</h3><p class="note">اضغطي الزر التالي لفتح واتساب برسالة جاهزة تحتوي تفاصيل طلبكِ، ثم اضغطي إرسال. لا يُسجَّل الطلب إلا بعد إرسال الرسالة.</p><p><a class="cta" href="${waLink}" target="_blank" rel="noopener">إرسال الطلب عبر واتساب</a></p><p><button class="cta ghost" id="back" style="margin:0">متابعة التسوق</button></p></div>`;
+  }else if(!cart.length){body=`<div class="ok"><h3>السلة فارغة</h3><p class="note">أضيفي ما يعجبكِ من المجموعة لتظهر هنا.</p></div>`}
+  else{
+    const lines=cart.map((i,k)=>{const p=PRODUCTS.find(x=>x.id===i.id);
+      return `<div class="line"><div class="thumb">${abaya(p.col,p.v)}</div>
+      <div><h4>${p.n}</h4><small>الطول ${i.size} · ${money(p.p)}</small>
+      <div class="qty"><button data-d="-1" data-k="${k}" aria-label="إنقاص">−</button><span>${i.q}</span><button data-d="1" data-k="${k}" aria-label="زيادة">+</button></div></div>
+      <button class="rm" data-rm="${k}">حذف</button></div>`}).join('');
+    body=`<div class="items">${lines}</div><div class="df">
+      <div class="note">المجموع الفرعي: ${money(t)} · الشحن: ${ship?money(ship):'مجاني'}</div>
+      <div class="tot"><span>الإجمالي</span><span>${money(t+ship)}</span></div>
+      ${checkout?`<form class="form" id="co"><input id="f-name" required placeholder="الاسم الكامل" autocomplete="name"><input id="f-phone" required inputmode="tel" placeholder="رقم الهاتف" autocomplete="tel"><input id="f-addr" required placeholder="المدينة والعنوان" autocomplete="street-address"><button class="cta" type="submit">تجهيز الطلب وإرساله عبر واتساب</button><div class="note">الدفع عند الاستلام. ستفتح رسالة واتساب جاهزة لإرسالها إلينا.</div></form>`
+      :`<button class="cta" id="go">إتمام الطلب</button>`}</div>`;
+  }
+  $('#layer').innerHTML=`<div class="scrim" id="scrim"></div><aside class="drawer" role="dialog" aria-label="سلة التسوق"><div class="dh"><h2>سلة التسوق</h2><button class="x" id="cl" aria-label="إغلاق">×</button></div>${body}</aside>`;
+  $('#scrim').onclick=$('#cl').onclick=closeCart;
+  const g=$('#go');if(g)g.onclick=()=>drawer(true);
+  const b=$('#back');if(b)b.onclick=closeCart;
+  document.querySelectorAll('[data-d]').forEach(x=>x.onclick=()=>{const i=cart[x.dataset.k];i.q+=+x.dataset.d;if(i.q<1)cart.splice(x.dataset.k,1);save();count();drawer(checkout)});
+  document.querySelectorAll('[data-rm]').forEach(x=>x.onclick=()=>{cart.splice(x.dataset.rm,1);save();count();drawer(checkout)});
+  const f=$('#co');if(f)f.onsubmit=e=>{e.preventDefault();
+    const rows=cart.map(i=>{const p=PRODUCTS.find(x=>x.id===i.id);return `• ${p.n} | الطول ${i.size} | الكمية ${i.q} | ${money(p.p*i.q)}`}).join('\n');
+    const msg=`طلب جديد من دار العباءة\n\n${rows}\n\nالمجموع الفرعي: ${money(t)}\nالشحن: ${ship?money(ship):'مجاني'}\nالإجمالي: ${money(t+ship)}\n\nالاسم: ${$('#f-name').value}\nالهاتف: ${$('#f-phone').value}\nالعنوان: ${$('#f-addr').value}\n\nالدفع عند الاستلام`;
+    waLink='https://wa.me/963986046678?text='+encodeURIComponent(msg);
+    cart=[];save();count();done=true;drawer()};
+}
+$('#openCart').onclick=openCart;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart()});
+render();count();
+</script>
